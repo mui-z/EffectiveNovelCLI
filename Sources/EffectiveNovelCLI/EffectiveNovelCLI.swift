@@ -11,7 +11,7 @@ public class EffectiveNovelCLI {
 
         cli.commands = [
             Read(),
-            List()
+            List(),
         ]
 
         cli.goAndExit()

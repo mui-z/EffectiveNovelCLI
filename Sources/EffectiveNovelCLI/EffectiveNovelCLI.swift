@@ -7,7 +7,7 @@ public class EffectiveNovelCLI {
     public func run() -> Never {
         Rainbow.enabled = Term.isTTY
 
-        let cli = CLI(name: "efnovel", version: "0.0.1", description: "Effective novel cli reader")
+        let cli = CLI(name: "efnovel", version: "0.0.1", description: "Effective Novel CLI reader")
 
         cli.commands = [
             Read(),

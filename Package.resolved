@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mui-z/effective-novel-core",
       "state" : {
-        "revision" : "7c4d1f5cf220f1d9777a3387213fe0fc2988eb6b",
-        "version" : "0.0.2"
+        "revision" : "457a78146351ae6935d38547fd33450fe57d4907",
+        "version" : "0.0.3"
       }
     },
     {

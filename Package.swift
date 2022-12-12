@@ -7,7 +7,7 @@ let package = Package(
     name: "EffectiveNovelCLI",
     platforms: [.macOS(.v10_15)],
     products: [
-        .executable(name: "efnovel", targets: ["EffectiveNovelCLI"]),
+        .executable(name: "nov", targets: ["EffectiveNovelCLI"]),
     ],
     dependencies: [
         .package(url: "https://github.com/onevcat/Rainbow", from: "4.0.1"),

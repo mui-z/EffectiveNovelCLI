@@ -11,8 +11,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/onevcat/Rainbow", from: "4.0.1"),
-        .package(url: "https://github.com/kylef/PathKit", from: "1.0.0"),
         .package(url: "https://github.com/jakeheis/SwiftCLI", from: "6.0.3"),
+        .package(url: "https://github.com/mxcl/Path.swift", from: "1.4.0"),
         .package(url: "https://github.com/mui-z/effective-novel-core", from: "1.1.2")
     ],
     targets: [
@@ -25,7 +25,7 @@ let package = Package(
 			"EffectiveNovelKit"
 		]),
         .target(name: "EffectiveNovelKit", dependencies: [
-            "PathKit",
+			.product(name: "Path", package: "Path.swift"),
             "Rainbow",
             "SwiftCLI",
             .product(name: "EffectiveNovelCore", package: "effective-novel-core"),
@@ -33,6 +33,10 @@ let package = Package(
         .testTarget(
             name: "EffectiveNovelCLITests",
             dependencies: ["EffectiveNovelCLI"]
+        ),
+        .testTarget(
+            name: "EffectiveNovelKitTests",
+            dependencies: ["EffectiveNovelKit"]
         ),
     ]
 )

@@ -19,8 +19,9 @@ let package = Package(
         .executableTarget(name: "EffectiveNovel", dependencies: [
             "EffectiveNovelCLI",
         ]),
-		.target(name: "EffecttiveNovelCLI", dependencies: [
+		.target(name: "EffectiveNovelCLI", dependencies: [
             "SwiftCLI",
+            "Rainbow",
 			"EffectiveNovelKit"
 		]),
         .target(name: "EffectiveNovelKit", dependencies: [

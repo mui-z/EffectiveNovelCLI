@@ -4,10 +4,10 @@
 import PackageDescription
 
 let package = Package(
-    name: "EffectiveNovelCLI",
+    name: "EffectiveNovel",
     platforms: [.macOS(.v10_15)],
     products: [
-        .executable(name: "nov", targets: ["EffectiveNovelCLI"]),
+        .executable(name: "nov", targets: ["EffectiveNovel"]),
     ],
     dependencies: [
         .package(url: "https://github.com/onevcat/Rainbow", from: "4.0.1"),
@@ -16,17 +16,18 @@ let package = Package(
         .package(url: "https://github.com/mui-z/effective-novel-core", from: "1.1.2")
     ],
     targets: [
-        .executableTarget(name: "EffectiveNovelCLI", dependencies: [
-            "EffectiveNovelCLIKit",
-            "SwiftCLI",
-            "PathKit",
-            "Rainbow",
-            .product(name: "EffectiveNovelCore", package: "effective-novel-core"),
+        .executableTarget(name: "EffectiveNovel", dependencies: [
+            "EffectiveNovelCLI",
         ]),
-        .target(name: "EffectiveNovelCLIKit", dependencies: [
+		.target(name: "EffecttiveNovelCLI", dependencies: [
+            "SwiftCLI",
+			"EffectiveNovelKit"
+		]),
+        .target(name: "EffectiveNovelKit", dependencies: [
             "PathKit",
             "Rainbow",
-            "SwiftCLI"
+            "SwiftCLI",
+            .product(name: "EffectiveNovelCore", package: "effective-novel-core"),
         ]),
         .testTarget(
             name: "EffectiveNovelCLITests",

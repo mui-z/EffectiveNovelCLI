@@ -12,7 +12,7 @@ import Path
 class CacheTest: XCTestCase {
 	
 	override func setUp() {
-		_ = try! Task.capture(bash: "mkdir ~/.novel")
+		_ = try! Path.mkdir(Path.home/".novel")(nil)
 	}
 	
 	override func tearDown() {

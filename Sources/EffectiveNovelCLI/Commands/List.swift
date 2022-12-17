@@ -12,12 +12,15 @@ class List: Command {
     let shortDescription = "cached list view"
 
     func execute() throws {
+		let list = Cache.getCacheList()
+		print("cached title".bold)
 		
-    }
-	
-	private func showList() {
-		Cache.getCacheList()
-			.forEach { path in
+		list
+			.forEach { title in
+				print(title)
 			}
-	}
+		
+		print("-------------------")
+		print("total: \(list.count)")
+    }
 }

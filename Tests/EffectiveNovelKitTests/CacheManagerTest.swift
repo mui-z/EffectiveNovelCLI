@@ -10,7 +10,6 @@ import Path
 @testable import EffectiveNovelKit
 
 class CacheTest: XCTestCase {
-	let HOME_PREFIX = Path.home
 	
 	override func setUp() {
 		_ = try! Task.capture(bash: "mkdir ~/.novel")

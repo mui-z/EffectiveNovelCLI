@@ -5,14 +5,15 @@
 import Foundation
 import SwiftCLI
 import Path
+import Rainbow
 
-struct Cache {
+public struct Cache {
 	static let CACHE_DIR_NAME = ".novel"
 	static let SCRIPT_EXTENSION = ".ens"
 }
 
 extension Cache {
-	static func getCacheList() -> [String] {
+	public static func getCacheList() -> [String] {
 		let path = Path.home/CACHE_DIR_NAME
 		return path.ls()
 			.files
@@ -22,7 +23,17 @@ extension Cache {
 			.map(\.string)
 	}
 	
-	static func clearCache() {
+	public static func delete(target: String) -> Bool {
+		do {
+			_ = try Task.capture(bash: "rm ~/.novel/\(target)")
+			return true
+		} catch {
+			print(("ERROR: " + error.localizedDescription).red)
+			return false
+		}
+	}
+	
+	public static func clear() {
 		_ = try! Task.capture(bash: "rm -rf ~/.novel/*")
 	}
 }

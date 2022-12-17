@@ -31,10 +31,6 @@ let package = Package(
             .product(name: "EffectiveNovelCore", package: "effective-novel-core"),
         ]),
         .testTarget(
-            name: "EffectiveNovelCLITests",
-            dependencies: ["EffectiveNovelCLI"]
-        ),
-        .testTarget(
             name: "EffectiveNovelKitTests",
             dependencies: ["EffectiveNovelKit"]
         ),

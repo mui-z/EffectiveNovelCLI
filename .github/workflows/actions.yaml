@@ -3,7 +3,7 @@ name: package test
 on: [push]
 
 jobs:
-  build:
+  test:
 
     runs-on: macos-latest
 

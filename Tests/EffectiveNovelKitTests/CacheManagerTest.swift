@@ -26,17 +26,16 @@ class CacheTest: XCTestCase {
 		_ = try! Task.capture(bash: "touch ~/.novel/hoge.ens")
 		
 		let list = Cache.getCacheList()
-		XCTAssertEqual(1, list.count)
+		XCTAssertEqual(["hoge"], list)
 	}
 	
 	func test_delete() {
 		_ = try! Task.capture(bash: "touch ~/.novel/hoge.ens")
 		_ = try! Task.capture(bash: "touch ~/.novel/fuga.ens")
 		
-		if Cache.delete(target: "hoge.ens") {
+		if Cache.delete(target: "hoge") {
 			let list = Cache.getCacheList()
-			print(list)
-			XCTAssertEqual([Path.home.string + "/.novel/fuga.ens"], list)
+			XCTAssertEqual(["fuga"], list)
 		} else {
 			XCTFail()
 		}
